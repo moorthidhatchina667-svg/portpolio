@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dhatchina Moorthi | Portfolio</title>
+
+
+    <style>
+
+        /* ==============================
+           BASIC
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1020;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* ==============================
+           NAVBAR
+        ============================== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            padding: 18px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(11, 16, 32, 0.95);
+
+            border-bottom: 1px solid #26304a;
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #00d9ff;
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .menu a {
+            color: #cbd5e1;
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #00d9ff;
+        }
+
+
+        /* ==============================
+           HOME
+        ============================== */
+
+        #home {
+            min-height: 100vh;
+
+            padding: 140px 8% 80px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    #123d55,
+                    transparent 35%
+                );
+        }
+
+        .home-text {
+            max-width: 650px;
+        }
+
+        .welcome {
+            color: #00d9ff;
+
+            font-size: 14px;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 20px;
+        }
+
+        .home-text h1 {
+            font-size: 65px;
+
+            line-height: 1.1;
+
+            margin-bottom: 15px;
+        }
+
+        .home-text h1 span {
+            color: #00d9ff;
+        }
+
+        .home-text h2 {
+            font-size: 28px;
+
+            color: #a5b4fc;
+
+            margin-bottom: 20px;
+        }
+
+        .home-text p {
+            color: #94a3b8;
+
+            font-size: 18px;
+
+            max-width: 580px;
+
+            line-height: 1.8;
+        }
+
+
+        /* Buttons */
+
+        .buttons {
+            margin-top: 30px;
+
+            display: flex;
+
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 13px 25px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #00d9ff;
+
+            color: #061018;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-outline {
+            border: 1px solid #475569;
+
+            color: white;
+        }
+
+        .btn-outline:hover {
+            border-color: #00d9ff;
+
+            color: #00d9ff;
+        }
+
+
+        /* Avatar */
+
+        .profile {
+            width: 380px;
+            height: 380px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: relative;
+        }
+
+        .avatar {
+            width: 250px;
+            height: 250px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 130px;
+
+            background: #111827;
+
+            border: 2px solid #00d9ff;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 50px
+                rgba(0, 217, 255, 0.25);
+        }
+
+        .profile::before {
+            content: "";
+
+            position: absolute;
+
+            width: 320px;
+            height: 320px;
+
+            border: 1px dashed #334155;
+
+            border-radius: 50%;
+        }
+
+
+        /* ==============================
+           COMMON SECTION
+        ============================== */
+
+        section:not(#home) {
+            padding: 100px 8%;
+        }
+
+        .title {
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .title p {
+            color: #00d9ff;
+
+            letter-spacing: 3px;
+
+            font-size: 13px;
+        }
+
+        .title h2 {
+            font-size: 42px;
+
+            margin-top: 10px;
+        }
+
+
+        /* ==============================
+           ABOUT
+        ============================== */
+
+        .about {
+            background: #0f172a;
+        }
+
+        .about-text {
+            max-width: 800px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .about-text p {
+            color: #94a3b8;
+
+            font-size: 18px;
+
+            line-height: 1.9;
+        }
+
+        .about-boxes {
+            margin-top: 45px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .box {
+            background: #111827;
+
+            border: 1px solid #26304a;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+        .box:hover {
+            transform: translateY(-8px);
+
+            border-color: #00d9ff;
+        }
+
+        .box-icon {
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+        .box h3 {
+            color: #00d9ff;
+
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            color: #94a3b8;
+        }
+
+
+        /* ==============================
+           SKILLS
+        ============================== */
+
+        .skills {
+            background: #0b1020;
+        }
+
+        .skill-container {
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+        .skill {
+            background: #111827;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            border: 1px solid #26304a;
+        }
+
+        .skill-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 12px;
+        }
+
+        .skill-top h3 {
+            color: white;
+        }
+
+        .skill-top span {
+            color: #00d9ff;
+        }
+
+        .bar {
+            height: 8px;
+
+            background: #26304a;
+
+            border-radius: 10px;
+        }
+
+        .progress {
+            height: 100%;
+
+            background: #00d9ff;
+
+            border-radius: 10px;
+        }
+
+        .python {
+            width: 80%;
+        }
+
+        .html {
+            width: 85%;
+        }
+
+        .css {
+            width: 75%;
+        }
+
+        .ai {
+            width: 65%;
+        }
+
+
+        /* ==============================
+           PROJECTS
+        ============================== */
+
+        .projects {
+            background: #0f172a;
+        }
+
+        .project-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .project {
+            background: #111827;
+
+            border: 1px solid #26304a;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+
+            border-color: #00d9ff;
+        }
+
+        .project-icon {
+            font-size: 45px;
+        }
+
+        .project h3 {
+            margin: 18px 0 10px;
+
+            color: #00d9ff;
+        }
+
+        .project p {
+            color: #94a3b8;
+
+            line-height: 1.7;
+        }
+
+        .project a {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            color: white;
+        }
+
+        .project a:hover {
+            color: #00d9ff;
+        }
+
+
+        /* ==============================
+           CONTACT
+        ============================== */
+
+        .contact {
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0b1020,
+                    #102a43
+                );
+        }
+
+        .contact p {
+            color: #94a3b8;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            text-align: center;
+
+            padding: 25px;
+
+            background: #060912;
+
+            color: #64748b;
+
+            border-top: 1px solid #1e293b;
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 850px) {
+
+            .menu {
+                display: none;
+            }
+
+            #home {
+                flex-direction: column;
+
+                text-align: center;
+
+                gap: 60px;
+            }
+
+            .home-text h1 {
+                font-size: 45px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .about-boxes,
+            .project-container {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         NAVIGATION
+    ============================== -->
+
+    <nav>
+
+        <div class="logo">
+            DM<span>.</span>
+        </div>
+
+        <div class="menu">
+
+            <a href="#home">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#skills">Skills</a>
+
+            <a href="#projects">Projects</a>
+
+            <a href="#contact">Contact</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ==============================
+         HOME
+    ============================== -->
+
+    <section id="home">
+
+        <div class="home-text">
+
+            <p class="welcome">
+                WELCOME TO MY PORTFOLIO
+            </p>
+
+            <h1>
+                Hi, I'm
+                <span>Dhatchina</span>
+            </h1>
+
+            <h2>
+                AI & Computer Science Student
+            </h2>
+
+            <p>
+                I am passionate about Artificial Intelligence,
+                Generative AI and modern technology.
+                I enjoy learning new technologies and
+                building useful applications.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects"
+                   class="btn btn-primary">
+                    View Projects
+                </a>
+
+                <a href="#contact"
+                   class="btn btn-outline">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile">
+
+            <div class="avatar">
+                👨‍💻
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         ABOUT
+    ============================== -->
+
+    <section id="about" class="about">
+
+        <div class="title">
+
+            <p>GET TO KNOW ME</p>
+
+            <h2>About Me</h2>
+
+        </div>
+
+
+        <div class="about-text">
+
+            <p>
+                I am a Computer Science Engineering student
+                interested in Artificial Intelligence,
+                Generative AI and software development.
+                My goal is to continuously improve my skills
+                and create technology that solves real problems.
+            </p>
+
+        </div>
+
+
+        <div class="about-boxes">
+
+
+            <div class="box">
+
+                <div class="box-icon">
+                    🎓
+                </div>
+
+                <h3>Education</h3>
+
+                <p>
+                    B.E Computer Science & Engineering
+                </p>
+
+                <p>
+                    Solamalai College of Engineering
+                </p>
+
+            </div>
+
+
+            <div class="box">
+
+                <div class="box-icon">
+                    🤖
+                </div>
+
+                <h3>Interest</h3>
+
+                <p>
+                    Artificial Intelligence,
+                    Generative AI & Technology
+                </p>
+
+            </div>
+
+
+            <div class="box">
+
+                <div class="box-icon">
+                    🎯
+                </div>
+
+                <h3>Career Goal</h3>
+
+                <p>
+                    Become a skilled AI professional
+                    and build useful AI applications.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         SKILLS
+    ============================== -->
+
+    <section id="skills" class="skills">
+
+        <div class="title">
+
+            <p>MY EXPERTISE</p>
+
+            <h2>Skills</h2>
+
+        </div>
+
+
+        <div class="skill-container">
+
+
+            <div class="skill">
+
+                <div class="skill-top">
+
+                    <h3>Python</h3>
+
+                    <span>80%</span>
+
+                </div>
+
+                <div class="bar">
+
+                    <div class="progress python"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-top">
+
+                    <h3>HTML</h3>
+
+                    <span>85%</span>
+
+                </div>
+
+                <div class="bar">
+
+                    <div class="progress html"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-top">
+
+                    <h3>CSS</h3>
+
+                    <span>75%</span>
+
+                </div>
+
+                <div class="bar">
+
+                    <div class="progress css"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-top">
+
+                    <h3>Artificial Intelligence</h3>
+
+                    <span>65%</span>
+
+                </div>
+
+                <div class="bar">
+
+                    <div class="progress ai"></div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         PROJECTS
+    ============================== -->
+
+    <section id="projects" class="projects">
+
+        <div class="title">
+
+            <p>MY RECENT WORK</p>
+
+            <h2>Projects</h2>
+
+        </div>
+
+
+        <div class="project-container">
+
+
+            <div class="project">
+
+                <div class="project-icon">
+                    🤖
+                </div>
+
+                <h3>AI Video Maker</h3>
+
+                <p>
+                    An AI-based project for creating
+                    videos using modern artificial
+                    intelligence technologies.
+                </p>
+
+                <a href="#">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-icon">
+                    🌐
+                </div>
+
+                <h3>Personal Portfolio</h3>
+
+                <p>
+                    A modern responsive portfolio
+                    website created using HTML
+                    and CSS.
+                </p>
+
+                <a href="#">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-icon">
+                    🧠
+                </div>
+
+                <h3>AI Learning Project</h3>
+
+                <p>
+                    A project created while learning
+                    Artificial Intelligence and
+                    Generative AI.
+                </p>
+
+                <a href="#">
+                    View Project →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         CONTACT
+    ============================== -->
+
+    <section id="contact" class="contact">
+
+        <div class="title">
+
+            <p>LET'S CONNECT</p>
+
+            <h2>Contact Me</h2>
+
+        </div>
+
+        <p>
+            Interested in AI, technology or collaboration?
+        </p>
+
+        <a
+            href="mailto:yourmail@gmail.com"
+            class="btn btn-primary">
+
+            📧 Email Me
+
+        </a>u
+
+    </section>
+
+
+    <!-- ==============================
+         FOOTER
+    ============================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Dhatchina Moorthi
+        </p>
+
+        <p>
+            Built with HTML & CSS 💙
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
